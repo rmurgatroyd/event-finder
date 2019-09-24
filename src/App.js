@@ -21,7 +21,7 @@ constructor(props){
 
 
   getEvents = async params => {
-    const url = `https://www.eventbriteapi.com/v3/events/search/?location.address=${params.city}&categories=${params.category}&subcategories=${params.subcategory}&sort_by=date&token=BHNCE6DGNBZLUHABNM2H`;
+    const url = `https://www.eventbriteapi.com/v3/events/search/?location.address=${params.city}&categories=${params.category}&subcategories=${params.subcategory}&sort_by=date&token=${TOKEN HERE}`;
       try{
         const response = await axios.get(url);
         const { events } = response.data;
@@ -46,7 +46,7 @@ constructor(props){
 }
 
 getCategories = async () => {
-  let url = `https://www.eventbriteapi.com/v3/categories/?token=BHNCE6DGNBZLUHABNM2H`;
+  let url = `https://www.eventbriteapi.com/v3/categories/?token=${TOKEN HERE}`;
 
   let response = await axios.get(url);
   const { categories } = response.data;
