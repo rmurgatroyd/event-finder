@@ -59,7 +59,7 @@ getCategories = async () => {
 
 getSubCategories = async categ => {
   if(categ!==''){
-  let url = `https://www.eventbriteapi.com/v3/categories/${categ}/?token=BHNCE6DGNBZLUHABNM2H`;
+  let url = `https://www.eventbriteapi.com/v3/categories/${categ}/?token=${TOKEN HERE}`;
 
   let response = await axios.get(url);
   const { subcategories } = response.data;
