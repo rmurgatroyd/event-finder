@@ -8,7 +8,7 @@ render(){
     return(
       <a href={event.url} className="event" key={i}>
         <div>
-        {event.logo ? <img className="event-image" src={event.logo.url} alt={event.name.text}" image"/> : null}
+        {event.logo ? <img className="event-image" src={event.logo.url} alt={event.name.text} /> : null}
         </div>
         <div className="event-info">
           <h1 className="event-title">{event.name.text}</h1>
