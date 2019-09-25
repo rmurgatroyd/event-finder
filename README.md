@@ -16,4 +16,4 @@ You will also see any lint errors in the console.
 
 ## Live Demo
 
-Demo can be seen at
+Demo can be seen at https://eventfinder-app.herokuapp.com/
