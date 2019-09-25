@@ -17,11 +17,10 @@ constructor(props){
 }
 
   getEvents = async params => {
-    const url = `https://www.eventbriteapi.com/v3/events/search/?location.address=${params.city}&categories=${params.category}&subcategories=${params.subcategory}&sort_by=date&token=${TOKEN HERE}`;
+    const url = `https://www.eventbriteapi.com/v3/events/search/?location.address=${params.city}&categories=${params.category}&subcategories=${params.subcategory}&sort_by=date&token=BHNCE6DGNBZLUHABNM2H`;
       try{
         const response = await axios.get(url);
         const { events } = response.data;
-        console.log(events)
           if(events.length>0){
             this.setState({ events: events,
                             error: "",
@@ -34,6 +33,7 @@ constructor(props){
                           error: "Please enter a valid location",
                         })
                       }
+
   };
 
   componentDidMount() {
@@ -41,7 +41,7 @@ constructor(props){
 }
 
 getCategories = async () => {
-  let url = `https://www.eventbriteapi.com/v3/categories/?token=${TOKEN HERE}`;
+  let url = `https://www.eventbriteapi.com/v3/categories/?token=BHNCE6DGNBZLUHABNM2H`;
 
   let response = await axios.get(url);
   const { categories } = response.data;
@@ -49,30 +49,29 @@ getCategories = async () => {
   this.setState({
     categories: categories
   });
-  console.log(this.state.categories)
 };
 
 getSubCategories = async categ => {
   if(categ!==''){
-  let url = `https://www.eventbriteapi.com/v3/categories/${categ}/?token=${TOKEN HERE}`;
+  let url = `https://www.eventbriteapi.com/v3/categories/${categ}/?token=BHNCE6DGNBZLUHABNM2H`;
 
   let response = await axios.get(url);
   const { subcategories } = response.data;
-console.log(subcategories)
   this.setState({
     subcategories: subcategories
   });
-  console.log(this.state.subcategories)
 }
 };
 
+
 render(){
+
+
   return (
     <div className="App">
-<Title title="Event Finder" />
-<Form getEvents={this.getEvents} getSubCategories={this.getSubCategories} categories={this.state.categories} subcategories={this.state.subcategories}/>
-<Events events={this.state.events} error={this.state.error} />
-
+        <Title title="Event Finder" />
+        <Form getEvents={this.getEvents} getSubCategories={this.getSubCategories} categories={this.state.categories} subcategories={this.state.subcategories}/>
+        <Events events={this.state.events} error={this.state.error} />
     </div>
   )};
 }

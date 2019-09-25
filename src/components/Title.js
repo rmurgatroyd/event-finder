@@ -6,7 +6,6 @@ class Title extends Component{
       <h1 className="page-title">{this.props.title}</h1>
     )
   }
-
 }
 
 export default Title
